@@ -2,16 +2,32 @@
 
 (function(){
   //module takes app name and array of dependencies
-  var app = angular.module('codelink', []);
+  var app = angular.module('codelink', [
+    'ui.bootstrap'
+  ]);
 
   //controllers are where app's behavior is defined by functions and values
   //pass in anon. function - code in here is what will be executed when function is called
   app.controller('codelinkController', function(){
     //set recommendation to product, a property of the controller
-    this.products = recommendations;
+    this.tools = reviews;
   });
 
-  var recommendations = [
+  app.controller("PanelController", function(){
+    this.tab = 1;
+
+    this.selectTab = function(setTab) {
+      this.tab = setTab;
+    };
+
+    //check to see if current tab is selected and set value
+    this.isSelected = function(checkTab){
+      return this.tab === checkTab;
+    };
+
+  });
+
+  var reviews = [
   {
     name: 'Code School',
     link: 'https://www.codeschool.com/courses/shaping-up-with-angular-js',
@@ -20,7 +36,6 @@
     quality: 5,
     skillLevel: 1,
     canReview: true,
-    doNotShow: false
   },
   {
     name: 'Code Academy',
@@ -29,7 +44,7 @@
     languages: 'AngularJS',
     quality: 4,
     skillLevel: 1,
-    canReview: true
+    canReview: false
   }
 ];
 

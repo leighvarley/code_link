@@ -4,23 +4,52 @@
     <meta charset="UTF-8">
     <title>CodeLink</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+
   </head>
-  <body>
-    <!-- attach controller to this div -->
-    <div ng-controller="codelinkController as codelinkCtrl">
-      <div ng-repeat="product in codelinkCtrl.products"
-        <h1>{{product.name}}</h1>
-        <p>{{product.link}}</p>
-        <p>{{product.description}}</p>
-        <p>{{product.languages}}</p>
-        <p>{{product.quality}}</p>
-        <p>{{product.skillLevel}}</p>
+
+  <section ng-controller="PanelController as panelCtrl">
+    <ul class="nav nav-pills">
+      <!-- check to see if expression is true, if it is, set class to active -->
+      <li ng-class="{active:panel.isSelected(1)}">
+        <a href ng-click="panel.selectTab(1)">Language</a></li>
+      <li ng-class="{active:panel.isSelected(2)}">
+        <a href ng-click="panel.selectTab(2)">Quality</a></li>
+      <li ng-class="{active:panel.isSelected(3)}">
+        <a href ng-click="panel.selectTab(3)">Skill Level</a></li>
+    </ul>
+  </section>
+
+  <div class="panel" ng-show="panel.isSelected(1)">
+    <h3>Language</h3>
+    <p>{{tool.languages}}</p>
+  </div>
+  <div class="panel" ng-show="panel.isSelected(2)">
+    <h3>Quality</h3>
+    <p>{{tool.quality}}</p>
+  </div>
+  <div class="panel" ng-show="panel.isSelected(3)">
+    <h3>Language</h3>
+    <p>{{tool.skillLevel}}</p>
+  </div>
+
+  <body ng-controller="codelinkController as codelinkCtrl">
+    <div class="tool-list">
+      <div ng-repeat="tool in codelinkCtrl.tools | orderBy: '-quality'">
+        <h3>{{tool.name}}</h3>
+        <p>{{tool.languages | uppercase}}</p>
+        <p>{{tool.link}}</p>
+        <p>{{tool.description | limitTo: 300}}</p>
+        <p>{{tool.quality}}</p>
+        <p>{{tool.skillLevel}}</p>
         <!-- only show button if value of the expression is true -->
-        <button ng-show="product.canReview">Add a Review</button>
+        <button type="button" class="btn btn-primary" ng-show="tool.canReview">Add a Review</button>
       </div>
+    </div>
+
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script type="text/javascript" src="app.js"></script>
 
   </body>
