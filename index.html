@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='codelink'>
+  <head>
+    <meta charset="UTF-8">
+    <title>CodeLink</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <!-- attach controller to this div -->
+    <div ng-controller="codelinkController as codelinkCtrl">
+      <div ng-repeat="product in codelinkCtrl.products"
+        <h1>{{product.name}}</h1>
+        <p>{{product.link}}</p>
+        <p>{{product.description}}</p>
+        <p>{{product.languages}}</p>
+        <p>{{product.quality}}</p>
+        <p>{{product.skillLevel}}</p>
+        <!-- only show button if value of the expression is true -->
+        <button ng-show="product.canReview">Add a Review</button>
+      </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+  </body>
+</html>
