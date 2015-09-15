@@ -13,7 +13,7 @@
     this.tools = reviews;
   });
 
-  app.controller("PanelController", function(){
+  app.controller("panelController", function(){
     this.tab = 1;
 
     this.selectTab = function(setTab) {
@@ -27,6 +27,16 @@
 
   });
 
+  app.controller('commentController', function(){
+    this.comment = {};
+    this.addComment = function(tool){
+      this.comment.createdOn = Date.now();
+      tool.comments.push(this.comment);
+      this.comment = {}
+    };
+
+  });
+
   var reviews = [
   {
     name: 'Code School',
@@ -36,6 +46,18 @@
     quality: 5,
     skillLevel: 1,
     canReview: true,
+    comments: [
+      {
+        body: 'Great tutorial',
+        author: 'Matthew',
+        quality: 5
+      },
+      {
+        body: 'I thought this was pretty helpful',
+        author: 'Sarah',
+        quality: 4
+      }
+    ]
   },
   {
     name: 'Code Academy',
@@ -44,7 +66,19 @@
     languages: 'AngularJS',
     quality: 4,
     skillLevel: 1,
-    canReview: false
+    canReview: true,
+    comments: [
+      {
+        body: 'Not bad.',
+        author: 'Barb',
+        quality: 3
+      },
+      {
+        body: 'Good starting place for beginners.',
+        author: 'Sarah',
+        quality: 4
+      }
+    ]
   }
 ];
 
