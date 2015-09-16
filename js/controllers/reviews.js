@@ -6,29 +6,14 @@
   //controllers are where app's behavior is defined by functions and values
   //pass in anon. function - code in here is what will be executed when function is called
 
-
-  app.controller('panelController', function(){
-    this.tab = 1;
-
-    this.selectTab = function(setTab) {
-      this.tab = setTab;
-    };
-
-    // check to see if current tab is selected and set value
-    this.isSelected = function(checkTab){
-      return this.tab === checkTab;
-    };
-
-  });
-
   app.controller('reviewsController', function(){
     this.review = {};
-    // addReview function - takes single argument - tool
-    this.addReview = function(tool){
-      // get the tool's current reviews
+    // addReview function - takes single argument - resource
+    this.addReview = function(resource){
+      // get the resource's current reviews
       this.review.createdOn = Date.now();
-      // push the controller's review (this.review) to the tool's reviews array
-      tool.reviews.push(this.review);
+      // push the controller's review (this.review) to the resource's reviews array
+      resource.reviews.push(this.review);
       this.review = {}
     };
 
