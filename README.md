@@ -5,3 +5,5 @@ Installation Instructions:
   - $ bower install --save jquery
   - $ bower install --save angular
   - $ bower install angular-bootstrap
+  - $ bower install firebase --save
+  - $ bower install angularfire --save

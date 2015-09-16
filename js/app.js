@@ -2,8 +2,8 @@
 
 (function(){
   var app = angular.module('codelink', [
-    'reviewsController'
-    // 'ui.bootstrap'
+    'reviewsControllers',
+    'codelinkControllers'
   ]);
 
 })();
