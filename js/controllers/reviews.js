@@ -1,4 +1,3 @@
-'use strict';
 //wrap entire function in closure
 (function(){
   //module takes app name and array of dependencies
