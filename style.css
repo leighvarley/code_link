@@ -1,0 +1,13 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1em;
+}
+
+input,
+textarea{
+  display: block;
+  width: 20%;
+}
