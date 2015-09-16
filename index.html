@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>CodeLink</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script> -->
     <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
 
   <body ng-controller="codelinkController as codelinkCtrl">
@@ -41,17 +41,13 @@
         <p>{{tool.skillLevel}}</p>
       </div>
 
-
-
-
-
-
     </section>
 
 
     <div class="tool-list">
       <div ng-repeat="tool in codelinkCtrl.tools | orderBy: '-quality'">
         <h3>{{tool.name}}</h3>
+        <p>{{tool.author}}</p>
         <p>{{tool.languages | uppercase}}</p>
         <p>{{tool.link}}</p>
         <p>{{tool.description | limitTo: 300}}</p>
@@ -60,12 +56,53 @@
         <!-- only show button if value of the expression is true -->
         <button type="button" class="btn btn-primary" ng-show="tool.canReview">Add a Review</button>
 
-      <!-- Loop through comments -->
-      <h3>Comments</h3>
-        <blockquote ng-repeat="comment in tool.comments"
-          <p>By: {{comment.author}}</p>
-          <p>{{comment.body}}
-        </blockquote>
+      <!-- Loop through reviews -->
+
+
+        <!-- Review Form -->
+        <form name="reviewForm" ng-controller="reviewController as reviewCtrl" ng-submit="reviewCtrl.addReview()">
+
+        <h3>Reviews</h3>
+          <blockquote ng-repeat="review in tools.reviews">
+            <p>Name: {{reviewCtrl.review.name}}</p>
+            <p>By: {{reviewCtrl.review.author}}</p>
+            <p>Link: {{reviewCtrl.review.link}}</p>
+            <p>Description: {{reviewCtrl.review.description}}</p>
+            <p>Quality: {{reviewCtrl.review.quality}}</p>
+            <p>Skill level: {{reviewCtrl.review.skillLevel}}</p>
+            <p>Languages: {{reviewCtrl.review.languages}}</p>
+          </blockquote>
+
+          <h3>Submit a Review</h3
+          <label>Resource Name</label>
+          <!-- ng-model binds form element value to property for two-way data binding -->
+          <input ng-model="review.name" type="text">
+          <label>Link</label>
+          <input ng-model="review.link" type="url">
+          <label>Skill Level</label>
+          <select ng-model="review.skillLevel">
+              <option value="1">Level 1</option>
+              <option value="2">Level 2</option>
+              <option value="3">Level 3</option>
+              <option value="4">Level 4</option>
+              <option value="5">Level 5</option>
+          <label>Languages, tools and frameworks</label>
+              <p><input ng-model="review.languages" type="radio" value="HTML">HTML</p>
+              <p><input ng-model="review.languages" type="radio" value="CSS">CSS</p>
+              <p><input ng-model="review.languages" type="radio" value="JavaScript">JavaScript</p>
+              <p><input ng-model="review.languages" type="radio" value="ROR">Ruby on Rails</p>
+              <p><input ng-model="review.languages" type="radio" value="Python">Python</p>
+              <p><input ng-model="review.languages" type="radio" value="Angular">Angular</p>
+          <label>Description</label>
+          <textarea ng-model="review.description"></textarea>
+          <label>Quality</label>
+          <select ng-model="review.quality">
+              <option value="1">1 star</option>
+              <option value="2">2 stars</option>
+              <option value="3">3 stars</option>
+              <option value="4">4 stars</option>
+              <option value="5">5 stars</option>
+          <input type="submit" value="Submit">
 
         </div>
 

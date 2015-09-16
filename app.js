@@ -1,9 +1,9 @@
+'use strict';
 //wrap entire function in closure
-
 (function(){
   //module takes app name and array of dependencies
   var app = angular.module('codelink', [
-    'ui.bootstrap'
+    // 'ui.bootstrap'
   ]);
 
   //controllers are where app's behavior is defined by functions and values
@@ -13,7 +13,7 @@
     this.tools = reviews;
   });
 
-  app.controller("panelController", function(){
+  app.controller('panelController', function(){
     this.tab = 1;
 
     this.selectTab = function(setTab) {
@@ -27,12 +27,15 @@
 
   });
 
-  app.controller('commentController', function(){
-    this.comment = {};
-    this.addComment = function(tool){
-      this.comment.createdOn = Date.now();
-      tool.comments.push(this.comment);
-      this.comment = {}
+  app.controller('reviewController', function(){
+    this.review = {};
+    // addReview function - takes single argument - tool
+    this.addReview = function(tool){
+      // get the tool's current reviews
+      this.review.createdOn = Date.now();
+      // push the controller's review (this.review) to the tool's reviews array
+      tool.reviews.push(this.review);
+      this.review = {}
     };
 
   });
@@ -40,6 +43,7 @@
   var reviews = [
   {
     name: 'Code School',
+    author: 'Everett',
     link: 'https://www.codeschool.com/courses/shaping-up-with-angular-js',
     description: 'I found this tutorial really helpful.',
     languages: 'AngularJS',
@@ -48,9 +52,10 @@
     canReview: true,
     comments: [
       {
-        body: 'Great tutorial',
         author: 'Matthew',
-        quality: 5
+        description: 'Great tutorial',
+        quality: 5,
+        skillLevel: 2
       },
       {
         body: 'I thought this was pretty helpful',
@@ -61,6 +66,7 @@
   },
   {
     name: 'Code Academy',
+    author: 'Grace',
     link: 'https://www.codecademy.com/courses/learn-angularjs',
     description: 'It was ok, the the Code School on Angular was better.',
     languages: 'AngularJS',
