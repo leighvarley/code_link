@@ -17,6 +17,13 @@
       this.review = {}
     };
 
+    this.formIsVisible = false;
+    this.showReview = true;
+    this.toggleForm = function(){
+      this.formIsVisible = this.formIsVisible ? false : true;
+    };
+
+
   });
 
   var reviews = [

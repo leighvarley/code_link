@@ -51,7 +51,7 @@
 
     <!-- Loop through reviews -->
     <!-- <div class="resource-list">
-      <div ng-repeat="tool in codelinkCtrl.resources | orderBy: '-quality'">
+      <div ng-repeat="resource in codelinkCtrl.resources | orderBy: '-quality'">
         <h3>{{resource.name}}</h3>
         <p>{{resource.author}}</p>
         <p>{{resource.languages | uppercase}}</p>
@@ -60,14 +60,11 @@
         <p>{{resource.quality}}</p>
         <p>{{resource.skillLevel}}</p> -->
         <!-- only show button if value of the expression is true -->
-       <!-- <button type="button" class="btn btn-primary" ng-show="tool.canReview">Add a Review</button> -->
+       <!-- <button type="button" class="btn btn-primary" ng-show="resource.canReview">Add a Review</button> -->
 
-
-        <!-- <h3>Review Form</h3>
-        <form name="reviewForm" ng-controller="reviewsController as reviewCtrl" ng-submit="reviewCtrl.addReview()"> -->
 
         <!-- <h3>Reviews</h3>
-          <blockquote ng-repeat="review in tools.reviews">
+          <blockquote ng-repeat="review in resource.reviews">
             <p>Name: {{reviewCtrl.review.name}}</p>
             <p>By: {{reviewCtrl.review.author}}</p>
             <p>Link: {{reviewCtrl.review.link}}</p>
@@ -77,30 +74,34 @@
             <p>Languages: {{reviewCtrl.review.languages}}</p>
           </blockquote> -->
 
-          <h3>Submit a Review</h3
+    <div ng-controller="reviewsController as reviewsCtrl">
+      <div id="createReview">
+        <a href="#" ng-click="reviewsCtrl.toggleForm()">New Review</a>
+          <form ng-show="reviewsCtrl.formIsVisible" name="reviewsCtrl.reviewForm" class='reviewForm' ng-submit="reviewsCtrl.create()">
+
           <p><label>Resource Name</label>
           <!-- ng-model binds form element value to property for two-way data binding -->
-          <input ng-model="review.name" type="text"><p>
+          <input name="resourceName" ng-model="reviewsCtrl.name" type="text"><p>
           <p><label>Link</label>
-          <input ng-model="review.link" type="url"></p>
+          <input name="link" ng-model="reviewsCtrl.link" type="url"></p>
           <label>Skill Level</label>
-          <select ng-model="review.skillLevel">
+          <select name="skillLevel" ng-model="reviewsCtrl.skillLevel">
               <option value="1">Level 1</option>
               <option value="2">Level 2</option>
               <option value="3">Level 3</option>
               <option value="4">Level 4</option>
               <option value="5">Level 5</option>
           <label>Languages, tools and frameworks</label>
-              <p><input ng-model="review.languages" type="radio" value="HTML">HTML</p>
-              <p><input ng-model="review.languages" type="radio" value="CSS">CSS</p>
-              <p><input ng-model="review.languages" type="radio" value="JavaScript">JavaScript</p>
-              <p><input ng-model="review.languages" type="radio" value="ROR">Ruby on Rails</p>
-              <p><input ng-model="review.languages" type="radio" value="Python">Python</p>
-              <p><input ng-model="review.languages" type="radio" value="Angular">Angular</p>
+              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="HTML">HTML</p>
+              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="CSS">CSS</p>
+              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="JavaScript">JavaScript</p>
+              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="ROR">Ruby on Rails</p>
+              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Python">Python</p>
+              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Angular">Angular</p>
           <p><label>Description</label>
-          <textarea ng-model="review.description"></textarea></p>
+          <textarea name="description" ng-model="reviewsCtrl.description"></textarea></p>
           <label>Quality</label>
-          <select ng-model="review.quality">
+          <select name="quality" ng-model="reviewsCtrl.quality">
               <option value="1">1 star</option>
               <option value="2">2 stars</option>
               <option value="3">3 stars</option>
