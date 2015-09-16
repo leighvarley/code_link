@@ -19,13 +19,13 @@
 
     <header>
       <h1>CodeLink</h1>
-      <h2>Crowdsoured resources learning code</h2>
+      <h3>Crowdsoured resources learning code</h3>
     </header>
 
-    <!-- <section ng-controller="panelController as panelCtrl">
-      <ul class="nav nav-pills"> -->
+    <section ng-controller="panelController as panelCtrl">
+      <ul class="nav nav-pills">
         <!-- check to see if expression is true, if it is, set class to active -->
-        <!-- <li ng-class="{active:panel.isSelected(1)}">
+        <li ng-class="{active:panel.isSelected(1)}">
           <a href ng-click="panel.selectTab(1)">Language</a></li>
         <li ng-class="{active:panel.isSelected(2)}">
           <a href ng-click="panel.selectTab(2)">Quality</a></li>
@@ -46,7 +46,7 @@
         <p>{{resource.skillLevel}}</p>
       </div>
 
-    </section> -->
+    </section>
 
     <!-- Loop through reviews -->
     <!-- <div class="resource-list">
@@ -59,11 +59,11 @@
         <p>{{resource.quality}}</p>
         <p>{{resource.skillLevel}}</p> -->
         <!-- only show button if value of the expression is true -->
-        <!-- <button type="button" class="btn btn-primary" ng-show="tool.canReview">Add a Review</button> -->
+       <!-- <button type="button" class="btn btn-primary" ng-show="tool.canReview">Add a Review</button> -->
 
 
-        <!-- Review Form -->
-        <form name="reviewForm" ng-controller="reviewsController as reviewCtrl" ng-submit="reviewCtrl.addReview()">
+        <!-- <h3>Review Form</h3>
+        <form name="reviewForm" ng-controller="reviewsController as reviewCtrl" ng-submit="reviewCtrl.addReview()"> -->
 
         <!-- <h3>Reviews</h3>
           <blockquote ng-repeat="review in tools.reviews">
@@ -74,9 +74,9 @@
             <p>Quality: {{reviewCtrl.review.quality}}</p>
             <p>Skill level: {{reviewCtrl.review.skillLevel}}</p>
             <p>Languages: {{reviewCtrl.review.languages}}</p>
-          </blockquote>
+          </blockquote> -->
 
-          <h3>Submit a Review</h3 -->
+          <h3>Submit a Review</h3
           <p><label>Resource Name</label>
           <!-- ng-model binds form element value to property for two-way data binding -->
           <input ng-model="review.name" type="text"><p>
