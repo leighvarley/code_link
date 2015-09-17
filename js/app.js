@@ -3,8 +3,7 @@
 (function(){
   var app = angular.module('codelink', [
     'reviewsControllers',
-    'codelinkControllers',
+    // 'codelinkControllers',
     'panelControllers'
   ]);
-
 })();

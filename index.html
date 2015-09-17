@@ -9,20 +9,23 @@
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="js/controllers/reviews.js"></script>
-    <script src="js/controllers/codelink.js"></script>
+    <!-- <script src="js/controllers/codelink.js"></script> -->
     <script src="js/controllers/panel.js"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css"/>
   </head>
 
-  <body ng-controller="codelinkController as codelinkCtrl">
+  <body>
+  <!-- <body ng-controller="codelinkController as codelinkCtrl"> -->
 
+    <!-- ==========HEADER============== -->
     <header>
       <h1>CodeLink</h1>
       <h3>Crowdsoured resources learning code</h3>
     </header>
 
+    <!-- ==========PANEL============== -->
     <section ng-controller="panelController as panelCtrl">
       <ul class="nav nav-pills">
         <!-- check to see if expression is true, if it is, set class to active -->
@@ -36,70 +39,46 @@
 
       <div class="panel" ng-show="panel.isSelected(1)">
         <h3>Language</h3>
-        <p>{{resource.languages}}</p>
+        <p>{{review.languages}}</p>
       </div>
       <div class="panel" ng-show="panel.isSelected(2)">
         <h3>Quality</h3>
-        <p>{{resource.quality}}</p>
+        <p>{{review.quality}}</p>
       </div>
       <div class="panel" ng-show="panel.isSelected(3)">
         <h3>Skill Level</h3>
-        <p>{{resource.skillLevel}}</p>
+        <p>{{review.skillLevel}}</p>
       </div>
 
     </section>
 
-    <!-- Loop through reviews -->
-    <!-- <div class="resource-list">
-      <div ng-repeat="resource in codelinkCtrl.resources | orderBy: '-quality'">
-        <h3>{{resource.name}}</h3>
-        <p>{{resource.author}}</p>
-        <p>{{resource.languages | uppercase}}</p>
-        <p>{{resource.link}}</p>
-        <p>{{resource.description | limitTo: 300}}</p>
-        <p>{{resource.quality}}</p>
-        <p>{{resource.skillLevel}}</p> -->
-        <!-- only show button if value of the expression is true -->
-       <!-- <button type="button" class="btn btn-primary" ng-show="resource.canReview">Add a Review</button> -->
-
-
-        <!-- <h3>Reviews</h3>
-          <blockquote ng-repeat="review in resource.reviews">
-            <p>Name: {{reviewCtrl.review.name}}</p>
-            <p>By: {{reviewCtrl.review.author}}</p>
-            <p>Link: {{reviewCtrl.review.link}}</p>
-            <p>Description: {{reviewCtrl.review.description}}</p>
-            <p>Quality: {{reviewCtrl.review.quality}}</p>
-            <p>Skill level: {{reviewCtrl.review.skillLevel}}</p>
-            <p>Languages: {{reviewCtrl.review.languages}}</p>
-          </blockquote> -->
-
+    <!-- ==========CREATE_REVIEW============== -->
     <div ng-controller="reviewsController as reviewsCtrl">
       <div id="createReview">
         <a href="#" ng-click="reviewsCtrl.toggleForm()">New Review</a>
           <form ng-show="reviewsCtrl.formIsVisible" name="reviewsCtrl.reviewForm" class='reviewForm' ng-submit="reviewsCtrl.create()">
 
-          <p><label>Resource Name</label>
+          <label>Resource Name</label>
           <!-- ng-model binds form element value to property for two-way data binding -->
-          <input name="resourceName" ng-model="reviewsCtrl.name" type="text"><p>
-          <p><label>Link</label>
-          <input name="link" ng-model="reviewsCtrl.link" type="url"></p>
+          <input name="resourceName" ng-model="reviewsCtrl.name" type="text">
+          <label>Link</label>
+          <input name="link" ng-model="reviewsCtrl.link" type="url">
           <label>Skill Level</label>
           <select name="skillLevel" ng-model="reviewsCtrl.skillLevel">
-              <option value="1">Level 1</option>
-              <option value="2">Level 2</option>
-              <option value="3">Level 3</option>
-              <option value="4">Level 4</option>
-              <option value="5">Level 5</option>
+            <option value="1">Level 1</option>
+            <option value="2">Level 2</option>
+            <option value="3">Level 3</option>
+            <option value="4">Level 4</option>
+            <option value="5">Level 5</option>
           <label>Languages, tools and frameworks</label>
-              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="HTML">HTML</p>
-              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="CSS">CSS</p>
-              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="JavaScript">JavaScript</p>
-              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="ROR">Ruby on Rails</p>
-              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Python">Python</p>
-              <p><input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Angular">Angular</p>
-          <p><label>Description</label>
-          <textarea name="description" ng-model="reviewsCtrl.description"></textarea></p>
+            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="HTML">HTML</input>
+            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="CSS">CSS</input>
+            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="JavaScript">JavaScript</input>
+            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="ROR">Ruby on Rails</input>
+            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Python">Python</input>
+            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Angular">Angular</input>
+          <label>Description</label>
+          <textarea name="description" ng-model="reviewsCtrl.description"></textarea>
           <label>Quality</label>
           <select name="quality" ng-model="reviewsCtrl.quality">
               <option value="1">1 star</option>
@@ -107,9 +86,23 @@
               <option value="3">3 stars</option>
               <option value="4">4 stars</option>
               <option value="5">5 stars</option>
-          <p><input type="submit" value="Submit"></p>
+          <button class="new">New Review</button>
+        </form>
+      </div>
 
-        </div>
+       <h3>Reviews</h3>
+          <div class="reviews" ng-repeat="review in reviewsCtrl.reviews">
+            <div class="review">
+              <p>Name: {{reviewCtrl.review.resourceName}}</p>
+              <p>Link: {{reviewCtrl.review.link}}</p>
+              <p>Description: {{reviewCtrl.review.description}}</p>
+              <p>Quality: {{reviewCtrl.review.quality}}</p>
+              <p>Skill level: {{reviewCtrl.review.skillLevel}}</p>
+              <p>Languages: {{reviewCtrl.review.languages}}</p>
+            </div>
+          </div>
+
+
 
     </div>
 
