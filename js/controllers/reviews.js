@@ -8,49 +8,49 @@
 
   this.reviews =  [
     {
-      name: 'Code School',
-      author: 'Everett',
-      link: 'https://www.codeschool.com/courses/shaping-up-with-angular-js',
-      description: 'I found this tutorial really helpful.',
-      languages: 'AngularJS',
-      quality: 5,
-      skillLevel: 1,
-      canReview: true,
-      comments: [
-        {
-          author: 'Matthew',
-          description: 'Great tutorial',
-          quality: 5,
-          skillLevel: 2
-        },
-        {
-          body: 'I thought this was pretty helpful',
-          author: 'Sarah',
-          quality: 4
-        }
-      ]
+      "name": 'Code School',
+      "author": 'Everett',
+      "link": 'https://www.codeschool.com/courses/shaping-up-with-angular-js',
+      "description": 'I found this tutorial really helpful.',
+      "languages": 'AngularJS',
+      "quality": 5,
+      "skillLevel": 1,
+      // canReview: true,
+      // comments: [
+      //   {
+      //     author: 'Matthew',
+      //     description: 'Great tutorial',
+      //     quality: 5,
+      //     skillLevel: 2
+      //   },
+      //   {
+      //     body: 'I thought this was pretty helpful',
+      //     author: 'Sarah',
+      //     quality: 4
+      //   }
+      // ]
     },
     {
-      name: 'Code Academy',
-      author: 'Grace',
-      link: 'https://www.codecademy.com/courses/learn-angularjs',
-      description: 'It was ok, the the Code School on Angular was better.',
-      languages: 'AngularJS',
-      quality: 4,
-      skillLevel: 1,
-      canReview: true,
-      comments: [
-        {
-          body: 'Not bad.',
-          author: 'Barb',
-          quality: 3
-        },
-        {
-          body: 'Good starting place for beginners.',
-          author: 'Sarah',
-          quality: 4
-        }
-      ]
+      "name": 'Code Academy',
+      "author": 'Grace',
+      "link": 'https://www.codecademy.com/courses/learn-angularjs',
+      "description": 'It was ok, the the Code School on Angular was better.',
+      "languages": 'AngularJS',
+      "quality": 4,
+      "skillLevel": 1,
+      // canReview: true,
+      // comments: [
+      //   {
+      //     body: 'Not bad.',
+      //     author: 'Barb',
+      //     quality: 3
+      //   },
+      //   {
+      //     body: 'Good starting place for beginners.',
+      //     author: 'Sarah',
+      //     quality: 4
+      //   }
+      // ]
     }
   ];
 
