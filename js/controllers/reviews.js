@@ -4,12 +4,23 @@
 'use strict';
 (function(){
   //module takes app name and array of dependencies
-  var reviewControllers = angular.module('reviewsControllers', ['ngRoute'])
+  var reviewControllers = angular.module('reviewControllers', ['ngRoute'])
 
   // index controller
   reviewControllers.controller('reviewsController', ['Review', function(Review) {
     this.reviews = Review.query();
   }]);
+
+  // new form controller
+   reviewControllers.controller('newReviewController', ["$location", 'Review', function($location, Review){
+     this.create = function(){
+       Review.save(this.review, function(review) {
+         $location.path("/reviews/" + review.$id);
+       });
+     };
+   }]);
+
+
 
 });
 

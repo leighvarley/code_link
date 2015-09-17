@@ -1,5 +1,5 @@
 (function(){
-  var router = angular.module('reviewsRouter', []);
+  var router = angular.module('reviewRouter', []);
   router.config([
     '$routeProvider',
     function($routeProvider){
@@ -10,7 +10,9 @@
         controllerAs: 'reviewsCtrl'
       }).
       when("/reviews/new", {
-        templateUrl: 'views/reviews/new.html'
+        templateUrl: 'views/reviews/new.html',
+        controller: 'newReviewController',
+        controllerAs: 'newReviewCtrl'
       }).
       when("/reviews/:id", {
         templateUrl: 'views/reviews/show.html'

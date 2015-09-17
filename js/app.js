@@ -4,9 +4,9 @@
   var app = angular.module('codelink', [
     'ngRoute',
     'ngResource',
-    'reviewsControllers',
-    'panelControllers',
-    'reviewsRouter',
+    'reviewControllers',
+    // 'panelControllers',
+    'reviewRouter',
     'reviewServices'
   ]);
 })();

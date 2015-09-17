@@ -1,1 +1,13 @@
-<div class='reviews' ng-repeat> </div>
+<div>
+  <a ng-href="/#/reviews/new">New Review</a>
+  <div class="reviews" ng-repeat="review in reviewsCtrl.reviews">
+    <div class="review">
+      <div>
+        <h2><a ng-href="/#/reviews/{{review.$id}}">{{ review.resourceName }}</a></h2>
+        <p>
+          {{ review.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
