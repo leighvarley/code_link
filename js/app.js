@@ -5,7 +5,6 @@
     'ngRoute',
     'ngResource',
     'reviewsControllers',
-    // 'codelinkControllers',
     'panelControllers',
     'reviewsRouter',
     'reviewServices'
