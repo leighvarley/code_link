@@ -7,4 +7,5 @@ Installation Instructions:
   - $ bower install angular-bootstrap
   - $ bower install firebase --save
   - $ bower install angularfire --save
+  - $ bower install --save angular-resource
   - bower install --save angular-route

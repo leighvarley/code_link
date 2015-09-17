@@ -3,9 +3,11 @@
 (function(){
   var app = angular.module('codelink', [
     'ngRoute',
+    'ngResource',
     'reviewsControllers',
     // 'codelinkControllers',
-    'panelControllers'
-    'reviewsRouter'
+    'panelControllers',
+    'reviewsRouter',
+    'reviewServices'
   ]);
 })();
