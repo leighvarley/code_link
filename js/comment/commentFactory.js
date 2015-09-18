@@ -8,7 +8,7 @@
 
   function Comments($firebase){
     var factory = this;
-    factory.for = function(grumble, comment){
+    factory.for = function(review, comment){
       if(!comment) comment = {}
       var methods = {
         $create: create,
@@ -17,14 +17,14 @@
       return angular.extend(comment, methods);
 
       function create(){
-        if(!grumble.comments) grumble.comments = [];
-        grumble.comments.push(this);
-        return $firebase.update(grumble);
+        if(!review.reviewcomments) review.comments = [];
+        review.comments.push(this);
+        return $firebase.update(review);
       }
       function destroy(){
-        grumble.comments.splice(grumble.comments.indexOf(this), 1);
-        return $firebase.update(grumble);
-        // grumble.child("comments").$remove(this)
+        review.comments.splice(review.comments.indexOf(this), 1);
+        return $firebase.update(review);
+        // review.child("comments").$remove(this)
       }
     }
     return factory
