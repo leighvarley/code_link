@@ -6,14 +6,14 @@
     <input type="text" data-ng-model="review.authorName">
     <label>Content</label>
     <textarea data-ng-model="review.content">new review content</textarea>
-    <label>Url</label>
-    <input type="text" data-ng-model="review.url">
+    <label>Link</label>
+    <input type="text" data-ng-model="review.link">
     <span data-ng-if="review.$id">
       <a data-ng-href="/#/reviews/{{review.$id}}">&larr; Back</a>
-      <button class="new" data-ng-click="review.$update()">Save</button>
+      <button class="new" class="btn btn-primary" data-ng-click="review.$update()">Save</button>
     </span>
     <span data-ng-if="!review.$id">
-      <button class="new" data-ng-click="review.$create()">Create</button>
+      <button class="new" class="btn btn-primary" data-ng-click="review.$create()">Create</button>
     </span>
   </form>
 </div>
