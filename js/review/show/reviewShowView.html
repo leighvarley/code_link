@@ -1,10 +1,10 @@
 <div class="review">
-  <h2><a data-ng-href="/#/reviews/{{review.$id}}">{{review.resourceName}}</a></h2>
+  <h2><a data-ng-href="/#/reviews/{{review.$id}}">{{review.title}}</a></h2>
   <p data-ng-if="showButtons">
     <a data-ng-click="review.$destroy()">Delete</a>
     <a data-ng-href="/#/reviews/{{review.$id}}/edit">Edit</a>
   </p>
-  <p>{{review.resourceName}}</p>
-  <p>{{review.description}}</p>
-
+  <p>by: {{review.authorName}}</p>
+  <p>{{review.content}}</p>
+  <p>{{review.url}}</p>
 </div>

@@ -6,6 +6,7 @@
     <script>var firebaseURL = "https://codelink.firebaseio.com/";</script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="js/app.js"></script>
@@ -30,89 +31,3 @@
     <div data-ng-view></div>
   </body>
 </html>
-
-
-
-
-
-
-    <!-- ==========PANEL============== -->
-    <!-- <section ng-controller="panelController as panelCtrl">
-      <ul class="nav nav-pills"> -->
-        <!-- check to see if expression is true, if it is, set class to active -->
-        <!-- <li ng-class="{active:panel.isSelected(1)}">
-          <a href ng-click="panel.selectTab(1)">Language</a></li>
-        <li ng-class="{active:panel.isSelected(2)}">
-          <a href ng-click="panel.selectTab(2)">Quality</a></li>
-        <li ng-class="{active:panel.isSelected(3)}">
-          <a href ng-click="panel.selectTab(3)">Skill Level</a></li>
-      </ul>
-
-      <div class="panel" ng-show="panel.isSelected(1)">
-        <h3>Language</h3>
-        <p>{{review.languages}}</p>
-      </div>
-      <div class="panel" ng-show="panel.isSelected(2)">
-        <h3>Quality</h3>
-        <p>{{review.quality}}</p>
-      </div>
-      <div class="panel" ng-show="panel.isSelected(3)">
-        <h3>Skill Level</h3>
-        <p>{{review.skillLevel}}</p>
-      </div>
-
-    </section> -->
-
-    <!-- ==========CREATE_REVIEW============== -->
-    <!-- <div ng-controller="reviewsController as reviewsCtrl">
-      <div id="createReview">
-        <a href="#" ng-click="reviewsCtrl.toggleForm()">New Review</a>
-          <form ng-show="reviewsCtrl.formIsVisible" name="reviewsCtrl.reviewForm" class='reviewForm' ng-submit="reviewsCtrl.create()">
-
-          <label>Resource Name</label> -->
-          <!-- ng-model binds form element value to property for two-way data binding -->
-          <!-- <input name="resourceName" ng-model="reviewsCtrl.name" type="text">
-          <label>Link</label>
-          <input name="link" ng-model="reviewsCtrl.link" type="url">
-          <label>Skill Level</label>
-          <select name="skillLevel" ng-model="reviewsCtrl.skillLevel">
-            <option value="1">Level 1</option>
-            <option value="2">Level 2</option>
-            <option value="3">Level 3</option>
-            <option value="4">Level 4</option>
-            <option value="5">Level 5</option>
-          <label>Languages, tools and frameworks</label>
-            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="HTML">HTML</input>
-            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="CSS">CSS</input>
-            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="JavaScript">JavaScript</input>
-            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="ROR">Ruby on Rails</input>
-            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Python">Python</input>
-            <input ng-model="reviewsCtrl.languages" type="radio" name="languages" value="Angular">Angular</input>
-          <label>Description</label>
-          <textarea name="description" ng-model="reviewsCtrl.description"></textarea>
-          <label>Quality</label>
-          <select name="quality" ng-model="reviewsCtrl.quality">
-              <option value="1">1 star</option>
-              <option value="2">2 stars</option>
-              <option value="3">3 stars</option>
-              <option value="4">4 stars</option>
-              <option value="5">5 stars</option>
-          <button type="button" class="new" ng-click="create()">New Review</button>
-        </form>
-      </div>
-
-       <h3>Reviews</h3>
-          <div class="reviews" ng-repeat="review in reviewsCtrl.reviews">
-            <div class="review">
-              <p>Name: {{reviewCtrl.review.resourceName}}</p>
-              <p>Link: {{reviewCtrl.review.link}}</p>
-              <p>Description: {{reviewCtrl.review.description}}</p>
-              <p>Quality: {{reviewCtrl.review.quality}}</p>
-              <p>Skill level: {{reviewCtrl.review.skillLevel}}</p>
-              <p>Languages: {{reviewCtrl.review.languages}}</p>
-            </div>
-          </div>
-
-
-
-    </div> -->

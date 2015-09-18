@@ -1,9 +1,13 @@
 <div>
   <form>
-    <label>Resource Name</label>
-    <input type="text" data-ng-model="review.resourceName">
-    <label>Description</label>
-    <textarea data-ng-model="review.description">new review description</textarea>
+    <label>Title</label>
+    <input type="text" data-ng-model="review.title">
+    <label>Author Name</label>
+    <input type="text" data-ng-model="review.authorName">
+    <label>Content</label>
+    <textarea data-ng-model="review.content">new review content</textarea>
+    <label>Url</label>
+    <input type="text" data-ng-model="review.url">
     <span data-ng-if="review.$id">
       <a data-ng-href="/#/reviews/{{review.$id}}">&larr; Back</a>
       <button class="new" data-ng-click="review.$update()">Save</button>
