@@ -13,17 +13,20 @@
         templateUrl: 'views/reviews/new.html',
         controller: 'newReviewController',
         controllerAs: 'newReviewCtrl'
+      }).
+      when("/reviews/:id", {
+        templateUrl: 'views/reviews/show.html',
+        controller: 'reviewController',
+        controllerAs: 'reviewCtrl'
+      }).
+      when("/reviews/:id/edit", {
+        templateUrl: 'views/reviews/edit.html',
+        controller: 'editReviewController',
+        controllerAs: 'reviewCtrl'
+      }).
+      otherwise({
+        redirectTo: "/reviews"
       })
-      // .
-      // when("/reviews/:id", {
-      //   templateUrl: 'views/reviews/show.html'
-      // }).
-      // when("/reviews/:id/edit", {
-      //   templateUrl: 'views/reviews/edit.html'
-      // }).
-      // otherwise({
-      //   redirectTo: "/reviews"
-      // })
     }
   ])
 

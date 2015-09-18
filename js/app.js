@@ -8,6 +8,7 @@
     'reviewControllers',
     // 'panelControllers',
     'reviewRouter',
-    'reviewServices'
+    'reviewServices',
+    'reviewDirectives'
   ]);
 })();
