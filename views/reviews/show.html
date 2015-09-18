@@ -1,1 +1,9 @@
-<p>{{"show"}}</p>
+<div>
+  <div class="review">
+    <div>
+      <h2><a ng-href="/#/reviews/{{reviewCtrl.review.$id}}">{{ reviewCtrl.review.resourceName }}</a> <span class='delete' ng-click="reviewCtrl.delete(reviewCtrl.review.$id)">(X)</span></h2>
+      <p>{{ reviewCtrl.review.description }}</p>
+    </div>
+    <a ng-href="/#/reviews/{{reviewCtrl.review.$id}}/edit">Edit Review</a>
+  </div>
+</div>

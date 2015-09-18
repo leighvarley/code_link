@@ -10,6 +10,15 @@
     this.reviews = Review.query();
   }]);
 
+  // show controller (inc link to delete)
+    // reviewControllers.controller('reviewController', ['$routeParams','$location', 'Review','Comment'], function($routeParams, $location, Review){
+    //   this.grumble = Review.get({$id: $routeParams.id});
+    //   this.delete = function(id){
+    //     Review.delete({$id: id}, function(){
+    //       $location.path("/reviews");
+    //     });
+    //   };
+
   // new form controller
    reviewControllers.controller('newReviewController', ["$location", 'Review', function($location, Review){
      this.create = function(){
@@ -19,9 +28,16 @@
      };
    }]);
 
+   // edit form controller
+   reviewControllers.controller('editGrumbleController', ["$location","$routeParams", 'Review', function($location, $routeParams, Review){
+     this.grumble = Review.get({$id: $routeParams.id});
+     this.update = function(){
+       this.review.$save();
+       $location.path("/reviews/" + this.review.$id);
+     };
+   }]);
+ })();
 
-
-});
 
   // this.reviews =  [
   //   {
