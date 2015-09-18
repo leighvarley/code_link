@@ -6,4 +6,18 @@
     </div>
     <a ng-href="/#/reviews/{{reviewCtrl.review.$id}}/edit">Edit Review</a>
   </div>
+
+  <form class="commentForm" ng-submit="reviewCtrl.createComment(reviewCtrl.comment)">
+    <label>Description</label>
+    <input type="text" ng-model="reviewCtrl.comment.content" name="content">
+    <button type="submit">Submit</button>
+  </form>
+  <ul ng-repeat="comment in reviewCtrl.review.comments | orderBy:'-created_at'">
+    <li>
+      <strong>{{comment.authorName}}</strong>
+      <small>{{comment.created_at}}</small><br>
+      {{comment.content}}
+    </li>
+  </div>
+
 </div>

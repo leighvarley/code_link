@@ -39,7 +39,7 @@
   }])
 
   // edit form controller (handles update)
-  grumbleControllers.controller('editReviewController', ["$location","$routeParams", 'Grumble', function($location, $routeParams, Review){
+  reviewControllers.controller('editReviewController', ["$location","$routeParams", 'Grumble', function($location, $routeParams, Review){
     this.review = Review.get({id: $routeParams.id})
     this.update = function(){
       this.review.$save();
