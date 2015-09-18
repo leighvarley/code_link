@@ -1,10 +1,9 @@
 //controllers are where app's behavior is defined by functions and values
 //pass in anon. function - code in here is what will be executed when function is called
 //wrap entire function in closure
-'use strict';
 (function(){
   //module takes app name and array of dependencies
-  var reviewControllers = angular.module('reviewControllers', ['ngRoute'])
+  var reviewControllers = angular.module('reviewControllers', ['ngRoute']);
 
   // index controller
   reviewControllers.controller('reviewsController', ['Review', function(Review) {
